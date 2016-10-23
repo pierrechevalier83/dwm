@@ -1,4 +1,6 @@
 /* See LICENSE file for copyright and license details. */
+#include <X11/XF86keysym.h>
+
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -59,11 +61,18 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *lockcmd[]  = { "slock", NULL };
 
+static const char *volupcmd[]   = { "amixer", "-q", "sset", "Master", "2%+", "unmute", NULL };
+static const char *voldowncmd[] = { "amixer", "-q", "sset", "Master", "2%-", "unmute", NULL };
+static const char *mutecmd[]    = { "amixer", "-q", "sset", "Master", "toggle", NULL };
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lockcmd} },
+	{      0,      XF86XK_AudioRaiseVolume,    spawn,          {.v = volupcmd } },
+	{      0,      XF86XK_AudioLowerVolume,    spawn,          {.v = voldowncmd } },
+	{      0,      XF86XK_AudioMute,           spawn,          {.v = mutecmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
