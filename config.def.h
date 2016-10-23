@@ -64,6 +64,8 @@ static const char *lockcmd[]  = { "slock", NULL };
 static const char *volupcmd[]   = { "amixer", "-q", "sset", "Master", "2%+", "unmute", NULL };
 static const char *voldowncmd[] = { "amixer", "-q", "sset", "Master", "2%-", "unmute", NULL };
 static const char *mutecmd[]    = { "amixer", "-q", "sset", "Master", "toggle", NULL };
+static const char *briupcmd[]    = { "xbacklight", "-inc", "15", NULL };
+static const char *bridowncmd[]    = { "xbacklight", "-dec", "15", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -73,6 +75,8 @@ static Key keys[] = {
 	{      0,      XF86XK_AudioRaiseVolume,    spawn,          {.v = volupcmd } },
 	{      0,      XF86XK_AudioLowerVolume,    spawn,          {.v = voldowncmd } },
 	{      0,      XF86XK_AudioMute,           spawn,          {.v = mutecmd } },
+	{      0,      XF86XK_MonBrightnessUp,     spawn,          {.v = briupcmd } },
+	{      0,      XF86XK_MonBrightnessDown,   spawn,          {.v = bridowncmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
