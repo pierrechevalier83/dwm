@@ -71,6 +71,8 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, NULL };
 static const char *termcmd[]  = { "st", "-t", "Terminal", NULL };
 static const char *webcmd[]  =  { "tabbed", "-c", "-d", "surf", "-z2", "-e", NULL };
+static const char *videocmd[]  =  { "videostream", NULL };
+static const char *filecmd[]  =  { "nautilus", NULL };
 static const char *lockcmd[]  = { "slock", NULL };
 
 static const char *volupcmd[]   = { "amixer", "-q", "sset", "Master", "2%+", "unmute", NULL };
@@ -86,6 +88,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = webcmd } },
+	{ MODKEY,                       XK_v,      spawn,          {.v = videocmd } },
+	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = filecmd} },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lockcmd} },
 	{      0,      XF86XK_AudioRaiseVolume,    spawn,          {.v = volupcmd } },
 	{      0,      XF86XK_AudioLowerVolume,    spawn,          {.v = voldowncmd } },
