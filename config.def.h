@@ -7,6 +7,14 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+
+/*   Display modes of the tab bar: never shown, always shown, shown only in */
+/*   monocle mode in presence of several windows.                           */
+/*   Modes after showtab_nmodes are disabled                                */
+enum showtab_modes { showtab_always, showtab_never, showtab_nmodes, showtab_auto };
+static const int showtab            = showtab_auto; /* Default tab bar show mode */
+static const Bool toptab            = True;    /* False means bottom tab bar */
+
 static const char *fonts[]          = { "Source Code Pro:size=20" };
 static const char dmenufont[]       = "Source Code Pro:size=20";
 static const char col_gray1[]       = "#073642";
@@ -81,6 +89,7 @@ static Key keys[] = {
 	{      0,      XF86XK_MonBrightnessUp,     spawn,          {.v = briupcmd } },
 	{      0,      XF86XK_MonBrightnessDown,   spawn,          {.v = bridowncmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
+	{ MODKEY,                       XK_Tab,    tabmode,        {-1} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
@@ -88,7 +97,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
-	{ MODKEY,                       XK_Tab,    view,           {0} },
+	{ MODKEY|ShiftMask,             XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[1]} },
