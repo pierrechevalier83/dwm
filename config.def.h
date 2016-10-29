@@ -78,6 +78,8 @@ static const char *voldowncmd[] = { "amixer", "-q", "sset", "Master", "2%-", "un
 static const char *mutecmd[]    = { "amixer", "-q", "sset", "Master", "toggle", NULL };
 static const char *briupcmd[]    = { "xbacklight", "-inc", "15", NULL };
 static const char *bridowncmd[]    = { "xbacklight", "-dec", "15", NULL };
+static const char *kbriupcmd[]    = { "keyboard-brightness.sh", "-inc", NULL };
+static const char *kbridowncmd[]    = { "keyboard-brightness.sh", "-dec", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -90,6 +92,8 @@ static Key keys[] = {
 	{      0,      XF86XK_AudioMute,           spawn,          {.v = mutecmd } },
 	{      0,      XF86XK_MonBrightnessUp,     spawn,          {.v = briupcmd } },
 	{      0,      XF86XK_MonBrightnessDown,   spawn,          {.v = bridowncmd } },
+	{ MODKEY,      XF86XK_MonBrightnessUp,     spawn,          {.v = kbriupcmd } },
+	{ MODKEY,      XF86XK_MonBrightnessDown,   spawn,          {.v = kbridowncmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_Tab,    tabmode,        {-1} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
