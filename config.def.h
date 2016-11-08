@@ -80,8 +80,8 @@ static const char *voldowncmd[] = { "amixer", "-q", "sset", "Master", "2%-", "un
 static const char *mutecmd[]    = { "amixer", "-q", "sset", "Master", "toggle", NULL };
 static const char *briupcmd[]    = { "xbacklight", "-inc", "15", NULL };
 static const char *bridowncmd[]    = { "xbacklight", "-dec", "15", NULL };
-static const char *kbriupcmd[]    = { "keyboard-brightness.sh", "-inc", NULL };
-static const char *kbridowncmd[]    = { "keyboard-brightness.sh", "-dec", NULL };
+static const char *kbriupcmd[]    = { "sudo", "keyboard-brightness.sh", "-inc", NULL };
+static const char *kbridowncmd[]    = { "sudo", "keyboard-brightness.sh", "-dec", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
