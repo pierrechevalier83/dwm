@@ -78,8 +78,8 @@ static const char *lockcmd[]  = { "slock", NULL };
 static const char *volupcmd[]   = { "amixer", "-q", "sset", "Master", "2%+", "unmute", NULL };
 static const char *voldowncmd[] = { "amixer", "-q", "sset", "Master", "2%-", "unmute", NULL };
 static const char *mutecmd[]    = { "amixer", "-q", "sset", "Master", "toggle", NULL };
-static const char *briupcmd[]    = { "xbacklight", "-inc", "15", NULL };
-static const char *bridowncmd[]    = { "xbacklight", "-dec", "15", NULL };
+static const char *briupcmd[]    = { "xbacklight", "-inc", "5", NULL };
+static const char *bridowncmd[]    = { "xbacklight", "-dec", "5", NULL };
 static const char *kbriupcmd[]    = { "sudo", "keyboard-brightness.sh", "-inc", NULL };
 static const char *kbridowncmd[]    = { "sudo", "keyboard-brightness.sh", "-dec", NULL };
 
