@@ -50,9 +50,9 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "|+|",      gaplessgrid }, /* first entry is default */
-	{ "[]=",      tile },        /* first entry is default */
-	{ "><>",      NULL },        /* no layout function means floating behavior */
 	{ "[M]",      monocle },
+	{ "><>",      NULL },        /* no layout function means floating behavior */
+
 };
 
 /* key definitions */
@@ -102,8 +102,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Tab,    tabmode,        {-1} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_j,      movestack,     {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_k,      movestack,     {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = +1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
@@ -112,11 +112,11 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[0]} },
-	{      0,                       0xffc2,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[1]} },
+	{      0,                       0xffc2,    setlayout,      {.v = &layouts[0]} },
+	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[1]} },
+	{      0,                       0xffc8,    setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[3]} },
-	{      0,                       0xffc8,      setlayout,      {.v = &layouts[3]} },
+
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
