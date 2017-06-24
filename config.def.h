@@ -99,7 +99,6 @@ static Key keys[] = {
 	{ MODKEY,      XF86XK_MonBrightnessUp,     spawn,          {.v = kbriupcmd } },
 	{ MODKEY,      XF86XK_MonBrightnessDown,   spawn,          {.v = kbridowncmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_Tab,    tabmode,        {-1} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = -1 } },
