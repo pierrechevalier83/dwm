@@ -395,7 +395,7 @@ void
 arrangemon(Monitor *m)
 {
 	updatebarpos(m);
-	XMoveResizeWindow(dpy, m->tabwin, m->wx, m->ty, m->ww, th);
+	XMoveResizeWindow(dpy, m->barwin, m->wx, m->by, m->ww, bh);
 	int n = 0;
 	Client *c;
 	strncpy(m->ltsymbol, m->lt[m->sellt]->symbol, sizeof m->ltsymbol);
